@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Us — Jimmy's Chicago Beef Schedule &amp; Calendar</title>
+  <meta name="description" content="Where is Jimmy's Chicago Beef parked this week? See our live Google Calendar for locations, pop-ups, and events around Denver." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">JCB</span>
+        <span class="brand-text">
+          <span class="brand-name">Jimmy's Chicago Beef</span>
+          <span class="brand-tag">Denver, Colorado</span>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="menu.html">Menu</a>
+        <a href="calendar.html" class="active">Find Us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Find the Truck</p>
+        <h1>Where we're parked this week.</h1>
+        <p class="lede">We update this calendar live. Breweries, markets, office parks, and the occasional late-night pop-up.</p>
+      </div>
+    </section>
+
+    <section class="container calendar-wrap">
+      <!--
+        TO EDIT THE CALENDAR:
+        1. In Google Calendar, create a calendar (e.g. "Jimmy's Schedule").
+        2. Settings → "Integrate calendar" → copy the Public URL / embed code.
+        3. Replace the src below with your calendar's src. Set it to public.
+        Changes you make in Google Calendar will appear on this page automatically.
+      -->
+      <div class="calendar-embed">
+        <iframe
+          title="Jimmy's Chicago Beef Schedule"
+          src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FDenver&mode=MONTH&showTitle=0&showNav=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0"
+          style="border: 0"
+          frameborder="0"
+          scrolling="no"
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <div class="calendar-help">
+        <h3>Don't see a stop near you?</h3>
+        <p>Follow us on social, or <a href="contact.html">tell us where to park next</a>. We love suggestions, especially if there's a brewery involved.</p>
+        <p class="muted"><small>Schedule changes with weather and events. Please check this page or our socials the day of.</small></p>
+      </div>
+    </section>
+
+    <section class="callout">
+      <div class="container callout-inner">
+        <h2>Want us at your spot?</h2>
+        <p>Breweries, office parks, farmer's markets, neighborhoods — we'd love to come by.</p>
+        <a class="btn btn-primary" href="contact.html">Invite the Truck</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <span class="brand-mark small">JCB</span>
+        <p>Jimmy's Chicago Beef<br />Denver, Colorado</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <p><a href="calendar.html">This week's schedule</a></p>
+        <p><a href="contact.html">Book the truck</a></p>
+      </div>
+      <div>
+        <h4>Say hi</h4>
+        <p><a href="mailto:hello@jimmyschicagobeef.com">hello@jimmyschicagobeef.com</a></p>
+        <p><a href="tel:+17205550123">(720) 555-0123</a></p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <small>&copy; <span id="year"></span> Jimmy's Chicago Beef. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

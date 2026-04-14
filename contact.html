@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &amp; Catering — Jimmy's Chicago Beef, Denver</title>
+  <meta name="description" content="Book Jimmy's Chicago Beef for catering, private events, office lunches, or say hello. Based in Denver, Colorado." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">JCB</span>
+        <span class="brand-text">
+          <span class="brand-name">Jimmy's Chicago Beef</span>
+          <span class="brand-tag">Denver, Colorado</span>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="menu.html">Menu</a>
+        <a href="calendar.html">Find Us</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Contact</p>
+        <h1>Say hello. Book the truck.</h1>
+        <p class="lede">Catering requests, media, partnerships, or just wanting to tell us your grandma made better giardiniera — we read every message.</p>
+      </div>
+    </section>
+
+    <section class="container contact-grid">
+      <div class="contact-info">
+        <h2>Get in touch</h2>
+        <p><strong>Email</strong><br /><a href="mailto:hello@jimmyschicagobeef.com">hello@jimmyschicagobeef.com</a></p>
+        <p><strong>Phone / Text</strong><br /><a href="tel:+17205550123">(720) 555-0123</a></p>
+        <p><strong>Based in</strong><br />Denver, Colorado &middot; Serving the Front Range</p>
+
+        <h3>Catering</h3>
+        <p>We cater events of all sizes — weddings, corporate lunches, graduations, backyard parties. Minimum orders and travel fees may apply for events outside the Denver metro.</p>
+
+        <h3>Hours</h3>
+        <p>We follow our event calendar. Check the <a href="calendar.html">Find Us</a> page for this week.</p>
+      </div>
+
+      <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST" novalidate>
+        <h2>Send a message</h2>
+
+        <label>
+          <span>Your name <em>*</em></span>
+          <input type="text" name="name" required autocomplete="name" />
+        </label>
+
+        <label>
+          <span>Email <em>*</em></span>
+          <input type="email" name="email" required autocomplete="email" />
+        </label>
+
+        <label>
+          <span>Phone</span>
+          <input type="tel" name="phone" autocomplete="tel" />
+        </label>
+
+        <label>
+          <span>What's this about?</span>
+          <select name="topic">
+            <option value="General">General question</option>
+            <option value="Catering">Catering / private event</option>
+            <option value="Event">Invite us to an event</option>
+            <option value="Media">Media / press</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Event date (if applicable)</span>
+          <input type="date" name="event_date" />
+        </label>
+
+        <label>
+          <span>Message <em>*</em></span>
+          <textarea name="message" rows="5" required placeholder="Tell us about your event, headcount, location, and anything else we should know."></textarea>
+        </label>
+
+        <!-- Simple honeypot for bots -->
+        <label class="hp" aria-hidden="true">
+          <span>Leave this field empty</span>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+        </label>
+
+        <button class="btn btn-primary" type="submit">Send Message</button>
+
+        <p class="form-note"><small>This form uses <a href="https://formspree.io" target="_blank" rel="noopener">Formspree</a>. Replace <code>your-form-id</code> in the form action with your own endpoint, or swap in any other form handler you prefer (Netlify Forms, Getform, etc.).</small></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <span class="brand-mark small">JCB</span>
+        <p>Jimmy's Chicago Beef<br />Denver, Colorado</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <p><a href="calendar.html">This week's schedule</a></p>
+        <p><a href="contact.html">Book the truck</a></p>
+      </div>
+      <div>
+        <h4>Say hi</h4>
+        <p><a href="mailto:hello@jimmyschicagobeef.com">hello@jimmyschicagobeef.com</a></p>
+        <p><a href="tel:+17205550123">(720) 555-0123</a></p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <small>&copy; <span id="year"></span> Jimmy's Chicago Beef. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
