@@ -283,8 +283,9 @@ a:hover { text-decoration: underline; }
   background:
     linear-gradient(rgba(31,46,63,0.45), rgba(31,46,63,0.60)),
     linear-gradient(180deg, var(--truck-sky) 0%, var(--truck-sky-dark) 100%);
-  padding: 6rem 0 5rem;
+  padding: 6rem 0 7rem;
   overflow: hidden;
+  min-height: 560px;
 }
 .hero::before {
   content: "";
@@ -293,7 +294,8 @@ a:hover { text-decoration: underline; }
                     radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06) 0, transparent 45%);
   pointer-events: none;
 }
-.hero-content { position: relative; max-width: 780px; z-index: 1; }
+.hero-content { position: relative; max-width: 720px; z-index: 1; padding-right: 1rem; }
+@media (min-width: 900px) { .hero-content { padding-right: 200px; } }
 .hero .eyebrow { color: var(--truck-yellow); }
 .hero h1 { color: #fff; text-shadow: 0 2px 12px rgba(31,46,63,0.4); }
 .hero h1 em { font-style: normal; color: var(--truck-yellow); }
@@ -902,3 +904,171 @@ a:hover { text-decoration: underline; }
 /* -------- A11y & utilities -------- */
 :focus-visible { outline: 2px solid var(--chicago-blue); outline-offset: 2px; }
 img { max-width: 100%; height: auto; display: block; }
+
+/* =========================================================
+   Retro / roadside-diner accents
+   (inspired by mid-century & Googie food-truck branding)
+   ========================================================= */
+
+/* Big Pacifico flourish sized for the hero headline */
+.script-xl {
+  font-family: var(--font-script);
+  font-weight: 400;
+  color: var(--truck-yellow);
+  font-size: 1.35em;
+  line-height: 0.9;
+  letter-spacing: 0;
+  text-shadow:
+    3px 3px 0 var(--truck-red),
+    6px 6px 0 var(--truck-navy);
+  display: inline-block;
+  transform: rotate(-4deg);
+  padding: 0 0.1em;
+}
+
+/* Circular stamp / seal — bottom-right of the home hero */
+.seal {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 2.25rem;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--truck-yellow);
+  color: var(--truck-navy);
+  border: 3px solid var(--truck-navy);
+  box-shadow:
+    0 0 0 6px var(--truck-yellow),
+    0 0 0 9px var(--truck-red),
+    6px 6px 0 rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotate(-8deg);
+  z-index: 2;
+  font-family: var(--font-display);
+}
+.seal-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.5rem;
+  line-height: 1;
+}
+.seal-top, .seal-bot {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--truck-red);
+}
+.seal-big {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--truck-navy);
+  text-transform: uppercase;
+}
+.seal-mid {
+  font-family: var(--font-script);
+  font-size: 0.95rem;
+  color: var(--truck-red);
+  line-height: 1;
+  margin-top: -0.1rem;
+}
+
+@media (max-width: 760px) {
+  .seal { width: 120px; height: 120px; right: 0.75rem; bottom: 1rem; }
+  .seal-big { font-size: 0.95rem; }
+  .seal-mid { font-size: 0.75rem; }
+  .seal-top, .seal-bot { font-size: 0.55rem; }
+}
+
+/* Googie starburst accent behind hero content */
+.starburst {
+  position: absolute;
+  top: 1.5rem;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  background:
+    conic-gradient(
+      var(--truck-yellow) 0deg 12deg, transparent 12deg 30deg,
+      var(--truck-yellow) 30deg 42deg, transparent 42deg 60deg,
+      var(--truck-yellow) 60deg 72deg, transparent 72deg 90deg,
+      var(--truck-yellow) 90deg 102deg, transparent 102deg 120deg,
+      var(--truck-yellow) 120deg 132deg, transparent 132deg 150deg,
+      var(--truck-yellow) 150deg 162deg, transparent 162deg 180deg,
+      var(--truck-yellow) 180deg 192deg, transparent 192deg 210deg,
+      var(--truck-yellow) 210deg 222deg, transparent 222deg 240deg,
+      var(--truck-yellow) 240deg 252deg, transparent 252deg 270deg,
+      var(--truck-yellow) 270deg 282deg, transparent 282deg 300deg,
+      var(--truck-yellow) 300deg 312deg, transparent 312deg 330deg,
+      var(--truck-yellow) 330deg 342deg, transparent 342deg 360deg
+    );
+  opacity: 0.22;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: starburst-spin 60s linear infinite;
+}
+@keyframes starburst-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@media (max-width: 760px) { .starburst { display: none; } }
+
+/* Postcard-style photo frames — white borders, soft rotation on hover */
+.gallery-grid figure,
+.bts-grid figure {
+  background: #fff;
+  padding: 8px 8px 28px;
+  border-radius: 4px;
+  position: relative;
+  transition: transform .25s ease, box-shadow .2s ease;
+}
+.gallery-grid figure:nth-child(odd)  { transform: rotate(-1.2deg); }
+.gallery-grid figure:nth-child(even) { transform: rotate(1.2deg); }
+.gallery-grid figure:hover,
+.bts-grid figure:hover { transform: rotate(0) translateY(-4px); box-shadow: 8px 8px 0 var(--truck-red); }
+.gallery-grid figure::after {
+  content: "Chicago · Denver";
+  position: absolute;
+  left: 0; right: 0; bottom: 6px;
+  text-align: center;
+  font-family: var(--font-script);
+  font-size: 0.8rem;
+  color: var(--truck-red);
+  line-height: 1;
+}
+
+/* "House Fave" stamp — can be added to any .menu-item */
+.menu-item.fave { position: relative; }
+.menu-item.fave::after {
+  content: "House\AFave";
+  white-space: pre;
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: var(--truck-red);
+  color: #fff;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 3px var(--truck-red), 3px 3px 0 rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  line-height: 1;
+  transform: rotate(12deg);
+  z-index: 2;
+}
