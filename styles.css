@@ -1,23 +1,38 @@
 /* =========================================================
    Jimmy's Chicago Beef — Site Styles
-   Palette inspired by the Chicago flag: red, sky blue, white
+   Palette pulled straight from the truck wrap:
+   sky blue body, red-and-white diamond kick plate,
+   yellow-orange "Jimmy's" script, deep navy skyline.
    ========================================================= */
 
 :root {
-  --chicago-red: #b8232a;
-  --chicago-red-dark: #8f1a20;
-  --chicago-blue: #2a78b5;
-  --chicago-blue-dark: #1b5783;
-  --cream: #fbf6ec;
-  --ink: #1b1b1b;
-  --ink-soft: #3a3a3a;
-  --ink-muted: #6b6b6b;
-  --line: #e6ddc9;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  --radius: 10px;
-  --max: 1120px;
+  /* Truck palette */
+  --truck-sky:        #8fcbde;  /* light cyan-blue body */
+  --truck-sky-soft:   #cfe8f1;  /* washed sky for backgrounds */
+  --truck-sky-dark:   #4a9cb8;  /* deeper sky for hover/accents */
+  --truck-red:        #d1362f;  /* checker red */
+  --truck-red-dark:   #a2241d;
+  --truck-yellow:     #f5a623;  /* "Jimmy's" script yellow-orange */
+  --truck-yellow-dark:#cf8810;
+  --truck-navy:       #1f2e3f;  /* skyline silhouette navy */
+  --cream:            #fff8ec;  /* warm off-white */
+
+  /* Legacy aliases so existing rules keep working */
+  --chicago-red:      var(--truck-red);
+  --chicago-red-dark: var(--truck-red-dark);
+  --chicago-blue:     var(--truck-sky-dark);
+  --chicago-blue-dark:var(--truck-navy);
+
+  --ink:        var(--truck-navy);
+  --ink-soft:   #3a4a5c;
+  --ink-muted:  #6b7a8a;
+  --line:       #e4ecf1;
+  --shadow:     0 10px 30px rgba(31, 46, 63, 0.15);
+  --radius:     10px;
+  --max:        1120px;
   --font-display: "Oswald", "Arial Narrow", Arial, sans-serif;
-  --font-body: "Lora", Georgia, "Times New Roman", serif;
+  --font-body:    "Lora", Georgia, "Times New Roman", serif;
+  --font-script:  "Pacifico", "Brush Script MT", cursive;
 }
 
 * { box-sizing: border-box; }
@@ -60,19 +75,58 @@ a:hover { text-decoration: underline; }
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.85rem;
-  color: var(--chicago-red);
+  color: var(--truck-yellow-dark);
   margin: 0 0 0.75rem;
   font-weight: 500;
+}
+
+/* Script accent for the "Jimmy's" feel on headings */
+.script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  color: var(--truck-yellow);
+  font-size: 1.25em;
+  letter-spacing: 0;
+  line-height: 1;
+  text-shadow: 2px 2px 0 var(--truck-red);
+}
+
+/* Red-and-white diamond checker stripe (matches truck kick plate) */
+.checker-stripe {
+  height: 18px;
+  background-image:
+    linear-gradient(135deg, var(--truck-red) 25%, transparent 25%) 0 0,
+    linear-gradient(225deg, var(--truck-red) 25%, transparent 25%) 0 0,
+    linear-gradient(315deg, var(--truck-red) 25%, transparent 25%) 0 0,
+    linear-gradient(45deg,  var(--truck-red) 25%, transparent 25%) 0 0;
+  background-size: 18px 18px;
+  background-color: #fff;
+  border-top: 2px solid var(--truck-red);
+  border-bottom: 2px solid var(--truck-red);
 }
 
 /* -------- Header / Nav -------- */
 .site-header {
   background: #fff;
-  border-bottom: 3px solid var(--chicago-red);
+  border-bottom: 3px solid var(--truck-red);
   position: sticky;
   top: 0;
   z-index: 50;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(31,46,63,0.06);
+}
+/* Red-diamond kick-plate strip beneath the header — echoes the truck */
+.site-header::after {
+  content: "";
+  display: block;
+  height: 10px;
+  background-image:
+    linear-gradient(135deg, var(--truck-red) 25%, transparent 25%),
+    linear-gradient(225deg, var(--truck-red) 25%, transparent 25%),
+    linear-gradient(315deg, var(--truck-red) 25%, transparent 25%),
+    linear-gradient(45deg,  var(--truck-red) 25%, transparent 25%);
+  background-size: 10px 10px;
+  background-color: #fff;
+  border-top: 1px solid var(--truck-red);
 }
 
 .nav-wrap {
@@ -93,19 +147,16 @@ a:hover { text-decoration: underline; }
 
 .brand:hover { text-decoration: none; }
 
-.brand-mark {
-  background: var(--chicago-red);
-  color: #fff;
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  padding: 0.45rem 0.6rem;
+/* Truck-logo image mark in the header */
+.brand-logo {
+  height: 54px;
+  width: auto;
   border-radius: 6px;
-  font-size: 1rem;
-  line-height: 1;
-  box-shadow: inset 0 -3px 0 var(--chicago-red-dark);
+  box-shadow: 0 2px 6px rgba(31,46,63,0.15);
+  border: 2px solid #fff;
+  display: block;
 }
-.brand-mark.small { font-size: 0.85rem; padding: 0.35rem 0.5rem; }
+.brand-logo-small { height: 40px; border-radius: 5px; }
 
 .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
 .brand-name { font-size: 1.15rem; }
@@ -113,8 +164,11 @@ a:hover { text-decoration: underline; }
   font-family: var(--font-body);
   font-style: italic;
   color: var(--ink-muted);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 }
+
+/* Hide retired JCB text mark if any stray markup remains */
+.brand-mark { display: none; }
 
 .site-nav {
   display: flex;
@@ -125,15 +179,15 @@ a:hover { text-decoration: underline; }
 .site-nav a {
   font-family: var(--font-display);
   font-weight: 500;
-  color: var(--ink);
+  color: var(--truck-navy);
   text-transform: uppercase;
   font-size: 0.95rem;
   letter-spacing: 0.08em;
   padding: 0.35rem 0;
   border-bottom: 2px solid transparent;
 }
-.site-nav a:hover { color: var(--chicago-red); text-decoration: none; }
-.site-nav a.active { color: var(--chicago-red); border-bottom-color: var(--chicago-red); }
+.site-nav a:hover { color: var(--truck-red); text-decoration: none; }
+.site-nav a.active { color: var(--truck-red); border-bottom-color: var(--truck-red); }
 
 .nav-toggle {
   display: none;
@@ -209,61 +263,64 @@ a:hover { text-decoration: underline; }
   position: relative;
   color: #fff;
   background:
-    linear-gradient(rgba(27,27,27,0.55), rgba(27,27,27,0.55)),
-    repeating-linear-gradient(135deg, #b8232a 0 2px, transparent 2px 22px),
-    linear-gradient(180deg, #2a78b5 0%, #1b5783 100%);
+    linear-gradient(rgba(31,46,63,0.45), rgba(31,46,63,0.60)),
+    linear-gradient(180deg, var(--truck-sky) 0%, var(--truck-sky-dark) 100%);
   padding: 6rem 0 5rem;
   overflow: hidden;
 }
 .hero::before {
   content: "";
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08) 0, transparent 40%),
+  background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.10) 0, transparent 40%),
                     radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06) 0, transparent 45%);
   pointer-events: none;
 }
-.hero-content { position: relative; max-width: 780px; }
-.hero .eyebrow { color: #ffd8b0; }
-.hero h1 { color: #fff; }
+.hero-content { position: relative; max-width: 780px; z-index: 1; }
+.hero .eyebrow { color: var(--truck-yellow); }
+.hero h1 { color: #fff; text-shadow: 0 2px 12px rgba(31,46,63,0.4); }
+.hero h1 em { font-style: normal; color: var(--truck-yellow); }
 .lede {
   font-size: 1.15rem;
-  color: rgba(255,255,255,0.9);
+  color: rgba(255,255,255,0.92);
   margin-bottom: 1.75rem;
 }
 .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
-/* Flag-inspired accent stripe */
+/* Red-and-white diamond kick plate — straight from the truck */
 .hero::after {
   content: "";
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  height: 8px;
-  background: linear-gradient(90deg,
-    var(--chicago-red) 0 25%,
-    #fff 25% 50%,
-    var(--chicago-blue) 50% 75%,
-    #fff 75% 100%
-  );
+  height: 18px;
+  background-image:
+    linear-gradient(135deg, var(--truck-red) 25%, transparent 25%),
+    linear-gradient(225deg, var(--truck-red) 25%, transparent 25%),
+    linear-gradient(315deg, var(--truck-red) 25%, transparent 25%),
+    linear-gradient(45deg,  var(--truck-red) 25%, transparent 25%);
+  background-size: 18px 18px;
+  background-color: #fff;
+  border-top: 2px solid var(--truck-red);
+  z-index: 1;
 }
 
 /* -------- Strip cards -------- */
-.strip { background: #fff; border-bottom: 1px solid var(--line); }
+.strip { background: var(--truck-sky-soft); border-bottom: 3px solid var(--truck-yellow); }
 .strip-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
-  padding: 2rem 1.25rem;
+  padding: 2.25rem 1.25rem;
 }
 .strip-grid > div { text-align: center; }
 .strip-grid strong {
   display: block;
   font-family: var(--font-display);
   font-size: 1.15rem;
-  color: var(--chicago-red);
+  color: var(--truck-red);
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-.strip-grid span { font-style: italic; color: var(--ink-muted); font-size: 0.95rem; }
+.strip-grid span { font-style: italic; color: var(--truck-navy); font-size: 0.95rem; opacity: 0.8; }
 
 /* -------- Feature (home story) -------- */
 .feature {
@@ -313,24 +370,28 @@ a:hover { text-decoration: underline; }
 
 /* -------- Page hero (inner pages) -------- */
 .page-hero {
-  background: linear-gradient(180deg, #fff 0%, var(--cream) 100%);
+  background: linear-gradient(180deg, var(--truck-sky-soft) 0%, #fff 100%);
   padding: 4rem 0 2.5rem;
-  border-bottom: 4px solid var(--chicago-red);
   position: relative;
 }
 .page-hero::after {
   content: "";
   display: block;
   position: absolute;
-  bottom: -4px; left: 0; right: 0;
-  height: 4px;
-  background: linear-gradient(90deg,
-    var(--chicago-red) 0 33%,
-    #fff 33% 66%,
-    var(--chicago-blue) 66% 100%
-  );
+  bottom: 0; left: 0; right: 0;
+  height: 14px;
+  background-image:
+    linear-gradient(135deg, var(--truck-red) 25%, transparent 25%),
+    linear-gradient(225deg, var(--truck-red) 25%, transparent 25%),
+    linear-gradient(315deg, var(--truck-red) 25%, transparent 25%),
+    linear-gradient(45deg,  var(--truck-red) 25%, transparent 25%);
+  background-size: 14px 14px;
+  background-color: #fff;
+  border-top: 2px solid var(--truck-red);
+  border-bottom: 2px solid var(--truck-red);
 }
-.page-hero h1 { margin-bottom: 0.5rem; }
+.page-hero h1 { margin-bottom: 0.5rem; color: var(--truck-navy); }
+.page-hero .eyebrow { color: var(--truck-red); }
 .page-hero .lede { color: var(--ink-soft); max-width: 640px; }
 
 /* -------- About page -------- */
@@ -533,37 +594,68 @@ a:hover { text-decoration: underline; }
 
 /* -------- Callout -------- */
 .callout {
-  background: var(--chicago-blue);
+  background: var(--truck-navy);
   color: #fff;
   padding: 3rem 0;
-  border-top: 4px solid var(--chicago-red);
-  border-bottom: 4px solid var(--chicago-red);
+  position: relative;
 }
+.callout::before,
+.callout::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 12px;
+  background-image:
+    linear-gradient(135deg, var(--truck-red) 25%, transparent 25%),
+    linear-gradient(225deg, var(--truck-red) 25%, transparent 25%),
+    linear-gradient(315deg, var(--truck-red) 25%, transparent 25%),
+    linear-gradient(45deg,  var(--truck-red) 25%, transparent 25%);
+  background-size: 12px 12px;
+  background-color: #fff;
+}
+.callout::before { top: 0; }
+.callout::after  { bottom: 0; }
 .callout-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
   flex-wrap: wrap;
-  padding: 0 1.25rem;
+  padding: 1rem 1.25rem;
 }
-.callout h2 { color: #fff; margin: 0; }
+.callout h2 { color: var(--truck-yellow); margin: 0; }
 .callout p { margin: 0; opacity: 0.95; }
 
 /* -------- Footer -------- */
 .site-footer {
-  background: var(--ink);
-  color: #e9e9e9;
+  background: var(--truck-navy);
+  color: #e3ecf3;
   padding: 3rem 0 1.25rem;
   margin-top: 2rem;
+  position: relative;
 }
-.site-footer a { color: #ffd8b0; }
+.site-footer::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 12px;
+  background-image:
+    linear-gradient(135deg, var(--truck-red) 25%, transparent 25%),
+    linear-gradient(225deg, var(--truck-red) 25%, transparent 25%),
+    linear-gradient(315deg, var(--truck-red) 25%, transparent 25%),
+    linear-gradient(45deg,  var(--truck-red) 25%, transparent 25%);
+  background-size: 12px 12px;
+  background-color: #fff;
+}
+.site-footer a { color: var(--truck-yellow); }
 .site-footer h4 {
-  color: #fff;
+  color: var(--truck-yellow);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.5rem;
 }
+.site-footer .footer-grid > div:first-child { padding-top: 0.5rem; }
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -573,7 +665,16 @@ a:hover { text-decoration: underline; }
 }
 .footer-bottom {
   padding: 1rem 1.25rem 0;
-  color: #aaa;
+  color: #a3b5c4;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tribute {
+  font-style: italic;
+  color: var(--truck-yellow);
+  opacity: 0.9;
 }
 
 /* -------- Hero with photo background -------- */
