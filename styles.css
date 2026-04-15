@@ -6,16 +6,16 @@
    ========================================================= */
 
 :root {
-  /* Truck palette */
-  --truck-sky:        #8fcbde;  /* light cyan-blue body */
-  --truck-sky-soft:   #cfe8f1;  /* washed sky for backgrounds */
-  --truck-sky-dark:   #4a9cb8;  /* deeper sky for hover/accents */
+  /* Truck palette — punched up for more presence */
+  --truck-sky:        #5ab6d1;  /* vivid truck-body sky blue */
+  --truck-sky-soft:   #bfe2ee;  /* washed sky for backgrounds */
+  --truck-sky-dark:   #2c7a94;  /* deeper sky for hover/accents */
   --truck-red:        #d1362f;  /* checker red */
   --truck-red-dark:   #a2241d;
   --truck-yellow:     #f5a623;  /* "Jimmy's" script yellow-orange */
   --truck-yellow-dark:#cf8810;
-  --truck-navy:       #1f2e3f;  /* skyline silhouette navy */
-  --cream:            #fff8ec;  /* warm off-white */
+  --truck-navy:       #1a2b3d;  /* skyline silhouette navy */
+  --cream:            #fff5e0;  /* warm off-white */
 
   /* Legacy aliases so existing rules keep working */
   --chicago-red:      var(--truck-red);
@@ -107,12 +107,12 @@ a:hover { text-decoration: underline; }
 
 /* -------- Header / Nav -------- */
 .site-header {
-  background: #fff;
-  border-bottom: 3px solid var(--truck-red);
+  background: var(--truck-sky);
+  border-bottom: 4px solid var(--truck-red);
   position: sticky;
   top: 0;
   z-index: 50;
-  box-shadow: 0 2px 8px rgba(31,46,63,0.06);
+  box-shadow: 0 4px 12px rgba(26,43,61,0.18);
 }
 /* Red-diamond kick-plate strip beneath the header — echoes the truck */
 .site-header::after {
@@ -147,28 +147,46 @@ a:hover { text-decoration: underline; }
 
 .brand:hover { text-decoration: none; }
 
-/* Truck-logo image mark in the header */
-.brand-logo {
-  height: 54px;
-  width: auto;
+/* Text-badge brand mark — small, yellow square with navy "JCB" */
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--truck-yellow);
+  color: var(--truck-navy);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  border: 2px solid var(--truck-navy);
   border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(31,46,63,0.15);
-  border: 2px solid #fff;
-  display: block;
+  box-shadow: 2px 2px 0 var(--truck-red);
+  flex-shrink: 0;
 }
-.brand-logo-small { height: 40px; border-radius: 5px; }
+.brand-mark-footer {
+  background: var(--truck-yellow);
+  color: var(--truck-navy);
+  margin-bottom: 0.5rem;
+}
 
 .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
-.brand-name { font-size: 1.15rem; }
+.brand-name { font-size: 1.2rem; color: #fff; letter-spacing: 0.04em; text-transform: uppercase; }
+.brand-name .script {
+  font-size: 1.3em;
+  color: var(--truck-yellow);
+  text-shadow: 1px 1px 0 var(--truck-red);
+  text-transform: none;
+  letter-spacing: 0;
+}
 .brand-tag {
   font-family: var(--font-body);
   font-style: italic;
-  color: var(--ink-muted);
-  font-size: 0.85rem;
+  color: rgba(255,255,255,0.92);
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
 }
-
-/* Hide retired JCB text mark if any stray markup remains */
-.brand-mark { display: none; }
 
 .site-nav {
   display: flex;
@@ -178,16 +196,16 @@ a:hover { text-decoration: underline; }
 
 .site-nav a {
   font-family: var(--font-display);
-  font-weight: 500;
-  color: var(--truck-navy);
+  font-weight: 700;
+  color: #fff;
   text-transform: uppercase;
   font-size: 0.95rem;
   letter-spacing: 0.08em;
   padding: 0.35rem 0;
-  border-bottom: 2px solid transparent;
+  border-bottom: 3px solid transparent;
 }
-.site-nav a:hover { color: var(--truck-red); text-decoration: none; }
-.site-nav a.active { color: var(--truck-red); border-bottom-color: var(--truck-red); }
+.site-nav a:hover { color: var(--truck-yellow); text-decoration: none; }
+.site-nav a.active { color: var(--truck-yellow); border-bottom-color: var(--truck-yellow); }
 
 .nav-toggle {
   display: none;
@@ -199,7 +217,7 @@ a:hover { text-decoration: underline; }
   padding: 0.5rem;
 }
 .nav-toggle span {
-  width: 24px; height: 2px; background: var(--ink); display: block; transition: transform .25s, opacity .25s;
+  width: 24px; height: 2px; background: #fff; display: block; transition: transform .25s, opacity .25s;
 }
 
 @media (max-width: 760px) {
@@ -209,15 +227,15 @@ a:hover { text-decoration: underline; }
     position: absolute;
     top: 100%;
     left: 0; right: 0;
-    background: #fff;
+    background: var(--truck-sky-dark);
     flex-direction: column;
     gap: 0;
     padding: 0.5rem 1.25rem 1rem;
-    border-bottom: 3px solid var(--chicago-red);
+    border-bottom: 4px solid var(--truck-yellow);
   }
   .site-nav.open { display: flex; }
-  .site-nav a { padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
-  .site-nav a.active { border-bottom-color: var(--line); }
+  .site-nav a { padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2); color: #fff; }
+  .site-nav a.active { border-bottom-color: var(--truck-yellow); }
 }
 
 /* -------- Buttons -------- */
@@ -304,23 +322,31 @@ a:hover { text-decoration: underline; }
 }
 
 /* -------- Strip cards -------- */
-.strip { background: var(--truck-sky-soft); border-bottom: 3px solid var(--truck-yellow); }
+.strip {
+  background: var(--truck-yellow);
+  border-top: 4px solid var(--truck-navy);
+  border-bottom: 4px solid var(--truck-navy);
+}
 .strip-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
   padding: 2.25rem 1.25rem;
 }
-.strip-grid > div { text-align: center; }
+.strip-grid > div {
+  text-align: center;
+  padding: 0.5rem;
+}
 .strip-grid strong {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   color: var(--truck-red);
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  margin-bottom: 0.25rem;
 }
-.strip-grid span { font-style: italic; color: var(--truck-navy); font-size: 0.95rem; opacity: 0.8; }
+.strip-grid span { font-style: italic; color: var(--truck-navy); font-size: 0.95rem; }
 
 /* -------- Feature (home story) -------- */
 .feature {
@@ -329,8 +355,10 @@ a:hover { text-decoration: underline; }
   gap: 3rem;
   padding: 5rem 1.25rem;
   align-items: center;
+  background: var(--cream);
 }
-.feature h2 { color: var(--ink); }
+.feature h2 { color: var(--truck-navy); }
+.feature .eyebrow { color: var(--truck-red); }
 .feature-media { display: flex; justify-content: center; }
 
 @media (max-width: 800px) {
@@ -370,10 +398,15 @@ a:hover { text-decoration: underline; }
 
 /* -------- Page hero (inner pages) -------- */
 .page-hero {
-  background: linear-gradient(180deg, var(--truck-sky-soft) 0%, #fff 100%);
-  padding: 4rem 0 2.5rem;
+  background:
+    linear-gradient(180deg, var(--truck-sky) 0%, var(--truck-sky-dark) 100%);
+  color: #fff;
+  padding: 4rem 0 3rem;
   position: relative;
 }
+.page-hero h1 { color: #fff !important; text-shadow: 0 2px 10px rgba(26,43,61,0.35); }
+.page-hero .eyebrow { color: var(--truck-yellow) !important; }
+.page-hero .lede { color: rgba(255,255,255,0.95) !important; max-width: 640px; }
 .page-hero::after {
   content: "";
   display: block;
@@ -390,9 +423,7 @@ a:hover { text-decoration: underline; }
   border-top: 2px solid var(--truck-red);
   border-bottom: 2px solid var(--truck-red);
 }
-.page-hero h1 { margin-bottom: 0.5rem; color: var(--truck-navy); }
-.page-hero .eyebrow { color: var(--truck-red); }
-.page-hero .lede { color: var(--ink-soft); max-width: 640px; }
+.page-hero h1 { margin-bottom: 0.5rem; }
 
 /* -------- About page -------- */
 .story-grid {
@@ -422,9 +453,10 @@ a:hover { text-decoration: underline; }
 }
 
 .values {
-  background: #fff;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  background: var(--truck-navy);
+  color: #fff;
+  border-top: 4px solid var(--truck-yellow);
+  border-bottom: 4px solid var(--truck-red);
 }
 .values-grid {
   display: grid;
@@ -432,7 +464,14 @@ a:hover { text-decoration: underline; }
   gap: 2rem;
   padding: 3rem 1.25rem;
 }
-.values-grid h3 { color: var(--chicago-red); }
+.values-grid > div {
+  background: rgba(255,255,255,0.04);
+  border-left: 4px solid var(--truck-yellow);
+  padding: 1.25rem 1.5rem;
+  border-radius: 4px;
+}
+.values-grid h3 { color: var(--truck-yellow); font-size: 1.35rem; }
+.values-grid p { color: rgba(255,255,255,0.92); margin: 0; }
 
 @media (max-width: 800px) {
   .story-grid { grid-template-columns: 1fr; padding: 2.5rem 1.25rem; gap: 2rem; }
@@ -443,12 +482,15 @@ a:hover { text-decoration: underline; }
 
 .menu-heading {
   margin: 2.5rem 0 1.25rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 3px solid var(--chicago-red);
+  padding: 0.5rem 1rem;
+  background: var(--truck-red);
+  color: #fff;
+  border-left: 8px solid var(--truck-yellow);
   font-size: 1.6rem;
-  color: var(--chicago-blue-dark);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  border-radius: 4px;
+  box-shadow: 0 4px 0 var(--truck-navy);
 }
 
 .menu-grid {
@@ -459,29 +501,34 @@ a:hover { text-decoration: underline; }
 
 .menu-item {
   background: #fff;
-  border: 1px solid var(--line);
+  border: 2px solid var(--truck-navy);
   border-radius: var(--radius);
   padding: 1.25rem 1.25rem 1rem;
-  box-shadow: 0 2px 0 rgba(0,0,0,0.03);
+  box-shadow: 4px 4px 0 var(--truck-red);
   transition: transform .15s ease, box-shadow .2s;
 }
-.menu-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.menu-item:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--truck-red); }
 
 .menu-item-head {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   gap: 0.75rem;
-  margin-bottom: 0.35rem;
-  border-bottom: 1px dotted var(--line);
-  padding-bottom: 0.35rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px dotted var(--truck-navy);
+  padding-bottom: 0.5rem;
 }
-.menu-item-head h3 { margin: 0; }
+.menu-item-head h3 { margin: 0; color: var(--truck-navy); }
 .price {
   font-family: var(--font-display);
   font-weight: 700;
-  color: var(--chicago-red);
-  font-size: 1.15rem;
+  color: var(--truck-navy);
+  background: var(--truck-yellow);
+  font-size: 1.05rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 4px;
+  border: 2px solid var(--truck-navy);
+  flex-shrink: 0;
 }
 
 .menu-item p { margin: 0; color: var(--ink-soft); }
@@ -489,10 +536,10 @@ a:hover { text-decoration: underline; }
 .menu-note {
   margin-top: 2rem;
   padding: 1rem 1.25rem;
-  background: #fff;
-  border-left: 4px solid var(--chicago-blue);
+  background: var(--truck-sky-soft);
+  border-left: 6px solid var(--truck-sky-dark);
   border-radius: 4px;
-  color: var(--ink-muted);
+  color: var(--truck-navy);
   font-style: italic;
 }
 
@@ -506,10 +553,10 @@ a:hover { text-decoration: underline; }
 }
 .calendar-embed {
   background: #fff;
-  border: 1px solid var(--line);
+  border: 3px solid var(--truck-navy);
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: var(--shadow);
+  box-shadow: 6px 6px 0 var(--truck-red);
 }
 .calendar-embed iframe {
   width: 100%;
@@ -519,12 +566,14 @@ a:hover { text-decoration: underline; }
 }
 
 .calendar-help {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--truck-sky-soft);
+  border: 2px solid var(--truck-navy);
+  border-top: 8px solid var(--truck-yellow);
   border-radius: var(--radius);
   padding: 1.5rem;
+  box-shadow: 4px 4px 0 var(--truck-red);
 }
-.calendar-help h3 { color: var(--chicago-red); margin-bottom: 0.5rem; }
+.calendar-help h3 { color: var(--truck-red); margin-bottom: 0.5rem; }
 .muted { color: var(--ink-muted); }
 
 @media (max-width: 900px) {
@@ -543,10 +592,11 @@ a:hover { text-decoration: underline; }
 .contact-info h3 { margin-top: 1.25rem; color: var(--chicago-red); }
 .contact-form {
   background: #fff;
-  border: 1px solid var(--line);
+  border: 2px solid var(--truck-navy);
+  border-top: 8px solid var(--truck-yellow);
   border-radius: var(--radius);
   padding: 2rem;
-  box-shadow: var(--shadow);
+  box-shadow: 6px 6px 0 var(--truck-red);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -594,9 +644,10 @@ a:hover { text-decoration: underline; }
 
 /* -------- Callout -------- */
 .callout {
-  background: var(--truck-navy);
+  background:
+    linear-gradient(135deg, var(--truck-red) 0%, var(--truck-red-dark) 100%);
   color: #fff;
-  padding: 3rem 0;
+  padding: 3.5rem 0;
   position: relative;
 }
 .callout::before,
@@ -623,8 +674,17 @@ a:hover { text-decoration: underline; }
   flex-wrap: wrap;
   padding: 1rem 1.25rem;
 }
-.callout h2 { color: var(--truck-yellow); margin: 0; }
-.callout p { margin: 0; opacity: 0.95; }
+.callout h2 { color: var(--truck-yellow); margin: 0; font-size: clamp(1.5rem, 2.5vw, 2rem); }
+.callout p { margin: 0; opacity: 0.98; font-size: 1.05rem; }
+.callout .btn-primary {
+  background: var(--truck-yellow);
+  border-color: var(--truck-yellow);
+  color: var(--truck-navy);
+}
+.callout .btn-primary:hover {
+  background: var(--truck-yellow-dark);
+  border-color: var(--truck-yellow-dark);
+}
 
 /* -------- Footer -------- */
 .site-footer {
@@ -699,10 +759,13 @@ a:hover { text-decoration: underline; }
 
 /* -------- Home: gallery -------- */
 .gallery-section {
-  padding: 4rem 0 2rem;
-  background: #fff;
-  border-top: 1px solid var(--line);
+  padding: 4rem 0 3rem;
+  background: var(--truck-sky-soft);
+  border-top: 4px solid var(--truck-yellow);
+  border-bottom: 4px solid var(--truck-yellow);
 }
+.gallery-section .eyebrow { color: var(--truck-red); }
+.gallery-section h2 { color: var(--truck-navy); }
 .gallery-title { margin-bottom: 1.5rem; }
 .gallery-grid {
   display: grid;
@@ -713,8 +776,9 @@ a:hover { text-decoration: underline; }
   margin: 0;
   overflow: hidden;
   border-radius: var(--radius);
-  background: var(--line);
-  box-shadow: 0 2px 0 rgba(0,0,0,0.05);
+  background: #fff;
+  border: 3px solid #fff;
+  box-shadow: 4px 4px 0 var(--truck-red);
   aspect-ratio: 4 / 3;
 }
 .gallery-grid img {
@@ -755,12 +819,13 @@ a:hover { text-decoration: underline; }
 
 /* -------- About: behind-the-scenes -------- */
 .bts {
-  background: #fff;
+  background: var(--truck-sky-soft);
   padding: 4rem 0 3rem;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  border-top: 4px solid var(--truck-yellow);
+  border-bottom: 4px solid var(--truck-yellow);
 }
-.bts h2 { margin-bottom: 1.5rem; }
+.bts h2 { margin-bottom: 1.5rem; color: var(--truck-navy); }
+.bts .eyebrow { color: var(--truck-red); }
 .bts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -771,7 +836,8 @@ a:hover { text-decoration: underline; }
   overflow: hidden;
   border-radius: var(--radius);
   aspect-ratio: 4 / 3;
-  box-shadow: 0 2px 0 rgba(0,0,0,0.05);
+  border: 3px solid #fff;
+  box-shadow: 4px 4px 0 var(--truck-red);
 }
 .bts-grid img {
   width: 100%;
@@ -793,7 +859,7 @@ a:hover { text-decoration: underline; }
   aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
-  border-bottom: 3px solid var(--chicago-red);
+  border-bottom: 4px solid var(--truck-yellow);
 }
 .menu-item.has-photo .menu-item-body {
   padding: 1.25rem 1.25rem 1rem;
