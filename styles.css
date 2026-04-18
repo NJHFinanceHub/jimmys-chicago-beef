@@ -26,8 +26,9 @@
   --font-slab:    "Alfa Slab One", "Ultra", Georgia, serif;
 
   /* Red-and-white diamond kick-plate strip — single inline SVG tile
-     (2 diamonds per 24×12 block, repeats horizontally). */
-  --checker: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12' preserveAspectRatio='none'><rect fill='white' width='24' height='12'/><path fill='%23d1362f' d='M6 0L12 6L6 12L0 6ZM18 0L24 6L18 12L12 6Z'/></svg>");
+     (2 diamonds per 24×12 block, repeats horizontally).
+     shape-rendering='crispEdges' avoids anti-aliasing fuzz on diagonals. */
+  --checker: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12' preserveAspectRatio='none' shape-rendering='crispEdges'><rect fill='white' width='24' height='12'/><path fill='%23d1362f' d='M6 0L12 6L6 12L0 6ZM18 0L24 6L18 12L12 6Z'/></svg>");
 }
 
 * { box-sizing: border-box; }
@@ -43,7 +44,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, .brand-name, .menu-heading, .eyebrow {
+h1, h2, h3, h4, .eyebrow {
   font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -121,45 +122,22 @@ a:hover { text-decoration: underline; }
 
 .brand:hover { text-decoration: none; }
 
-/* Brand mark — logo image. Falls back gracefully if the file is missing. */
+/* Brand mark — logo image already contains the wordmark, so the header
+   just pairs it with a small italic location tag. */
 .brand-logo {
-  height: 54px;
+  height: 64px;
   width: auto;
   display: block;
   flex-shrink: 0;
 }
-.brand-logo-footer { height: 64px; margin-bottom: 0.5rem; }
+.brand-logo-footer { height: 80px; margin-bottom: 0.5rem; }
 
-.brand-text { display: flex; flex-direction: column; line-height: 1.05; }
-.brand-jimmys {
-  font-family: var(--font-script);
-  font-weight: 400;
-  font-size: 1.7rem;
-  color: var(--truck-yellow);
-  text-shadow: 1.5px 1.5px 0 var(--truck-red);
-  letter-spacing: 0;
-  line-height: 0.9;
-}
-.brand-beef {
-  font-family: var(--font-slab);
-  font-weight: 400;
-  font-size: 0.8rem;
-  color: var(--cream);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  background: var(--truck-red);
-  padding: 2px 6px;
-  border-radius: 2px;
-  align-self: flex-start;
-  margin-top: 2px;
-}
 .brand-tag {
   font-family: var(--font-body);
   font-style: italic;
-  color: rgba(255,255,255,0.92);
-  font-size: 0.75rem;
+  color: var(--truck-navy);
+  font-size: 0.95rem;
   letter-spacing: 0.03em;
-  margin-top: 2px;
 }
 
 .site-nav {
