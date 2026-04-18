@@ -274,9 +274,9 @@ a:hover { text-decoration: underline; }
 .hero-content { position: relative; max-width: 720px; z-index: 1; padding-right: 1rem; }
 @media (min-width: 900px) { .hero-content { padding-right: 200px; } }
 .hero .eyebrow { color: var(--truck-yellow); }
-.hero h1 { color: #fff; text-shadow: 0 2px 12px rgba(31,46,63,0.4); line-height: 1.4; }
+.hero h1 { color: #fff; text-shadow: 0 2px 12px rgba(31,46,63,0.4); line-height: 1.25; }
 .hero h1 em { font-style: normal; color: var(--truck-yellow); }
-.hero h1 .mile-high { display: inline-block; margin-top: 0.35em; }
+.hero h1 .mile-high { display: inline-block; margin-top: 0.15em; }
 .lede {
   font-size: 1.15rem;
   color: rgba(255,255,255,0.92);
