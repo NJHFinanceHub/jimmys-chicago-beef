@@ -3,9 +3,9 @@
    kick plate, yellow-orange "Jimmy's" script, deep navy skyline. */
 
 :root {
-  --truck-sky:        #5ab6d1;
-  --truck-sky-soft:   #bfe2ee;
-  --truck-sky-dark:   #2c7a94;
+  --truck-sky:        #89cff0;
+  --truck-sky-soft:   #cfecf9;
+  --truck-sky-dark:   #4aa3c7;
   --truck-red:        #d1362f;
   --truck-red-dark:   #a2241d;
   --truck-yellow:     #f5a623;
@@ -22,7 +22,8 @@
   --max:        1120px;
   --font-display: "Oswald", "Arial Narrow", Arial, sans-serif;
   --font-body:    "Lora", Georgia, "Times New Roman", serif;
-  --font-script:  "Pacifico", "Brush Script MT", cursive;
+  --font-script:  "Lobster", "Pacifico", "Brush Script MT", cursive;
+  --font-slab:    "Alfa Slab One", "Ultra", Georgia, serif;
 }
 
 * { box-sizing: border-box; }
@@ -123,45 +124,45 @@ a:hover { text-decoration: underline; }
 
 .brand:hover { text-decoration: none; }
 
-/* Text-badge brand mark — small, yellow square with navy "JCB" */
-.brand-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  background: var(--truck-yellow);
-  color: var(--truck-navy);
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: 0.04em;
-  border: 2px solid var(--truck-navy);
-  border-radius: 6px;
-  box-shadow: 2px 2px 0 var(--truck-red);
+/* Brand mark — logo image. Falls back gracefully if the file is missing. */
+.brand-logo {
+  height: 54px;
+  width: auto;
+  display: block;
   flex-shrink: 0;
 }
-.brand-mark-footer {
-  background: var(--truck-yellow);
-  color: var(--truck-navy);
-  margin-bottom: 0.5rem;
-}
+.brand-logo-footer { height: 64px; margin-bottom: 0.5rem; }
 
-.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
-.brand-name { font-size: 1.2rem; color: #fff; letter-spacing: 0.04em; text-transform: uppercase; }
-.brand-name .script {
-  font-size: 1.3em;
+.brand-text { display: flex; flex-direction: column; line-height: 1.05; }
+.brand-jimmys {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: 1.7rem;
   color: var(--truck-yellow);
-  text-shadow: 1px 1px 0 var(--truck-red);
-  text-transform: none;
+  text-shadow: 1.5px 1.5px 0 var(--truck-red);
   letter-spacing: 0;
+  line-height: 0.9;
+}
+.brand-beef {
+  font-family: var(--font-slab);
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--cream);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--truck-red);
+  padding: 2px 6px;
+  border-radius: 2px;
+  align-self: flex-start;
+  margin-top: 2px;
 }
 .brand-tag {
   font-family: var(--font-body);
   font-style: italic;
   color: rgba(255,255,255,0.92);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   letter-spacing: 0.03em;
+  margin-top: 2px;
 }
 
 .site-nav {
@@ -273,8 +274,9 @@ a:hover { text-decoration: underline; }
 .hero-content { position: relative; max-width: 720px; z-index: 1; padding-right: 1rem; }
 @media (min-width: 900px) { .hero-content { padding-right: 200px; } }
 .hero .eyebrow { color: var(--truck-yellow); }
-.hero h1 { color: #fff; text-shadow: 0 2px 12px rgba(31,46,63,0.4); }
+.hero h1 { color: #fff; text-shadow: 0 2px 12px rgba(31,46,63,0.4); line-height: 1.4; }
 .hero h1 em { font-style: normal; color: var(--truck-yellow); }
+.hero h1 .mile-high { display: inline-block; margin-top: 0.35em; }
 .lede {
   font-size: 1.15rem;
   color: rgba(255,255,255,0.92);
@@ -434,71 +436,7 @@ a:hover { text-decoration: underline; }
   .story-grid { grid-template-columns: 1fr; padding: 2.5rem 1.25rem; gap: 2rem; }
 }
 
-/* -------- Menu page -------- */
-.menu-section { padding: 3rem 1.25rem 1rem; }
-
-.menu-heading {
-  margin: 2.5rem 0 1.25rem;
-  padding: 0.5rem 1rem;
-  background: var(--truck-red);
-  color: #fff;
-  border-left: 8px solid var(--truck-yellow);
-  font-size: 1.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-radius: 4px;
-  box-shadow: 0 4px 0 var(--truck-navy);
-}
-
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.menu-item {
-  background: #fff;
-  border: 2px solid var(--truck-navy);
-  border-radius: var(--radius);
-  padding: 1.25rem 1.25rem 1rem;
-  box-shadow: 4px 4px 0 var(--truck-red);
-  transition: transform .15s ease, box-shadow .2s;
-}
-.menu-item:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--truck-red); }
-
-.menu-item-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
-  border-bottom: 2px dotted var(--truck-navy);
-  padding-bottom: 0.5rem;
-}
-.menu-item-head h3 { margin: 0; color: var(--truck-navy); }
-.price {
-  font-family: var(--font-display);
-  font-weight: 700;
-  color: var(--truck-navy);
-  background: var(--truck-yellow);
-  font-size: 1.05rem;
-  padding: 0.15rem 0.6rem;
-  border-radius: 4px;
-  border: 2px solid var(--truck-navy);
-  flex-shrink: 0;
-}
-
-.menu-item p { margin: 0; color: var(--ink-soft); }
-
-.menu-note {
-  margin-top: 2rem;
-  padding: 1rem 1.25rem;
-  background: var(--truck-sky-soft);
-  border-left: 6px solid var(--truck-sky-dark);
-  border-radius: 4px;
-  color: var(--truck-navy);
-  font-style: italic;
-}
+/* -------- Menu page (PDF embed styles live near the bottom) -------- */
 
 /* -------- Calendar page -------- */
 .calendar-wrap {
@@ -803,28 +741,6 @@ a:hover { text-decoration: underline; }
 }
 .bts-grid figure:hover img { transform: scale(1.04); }
 
-/* -------- Menu cards with photos -------- */
-.menu-item.has-photo {
-  padding: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-.menu-photo {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  display: block;
-  border-bottom: 4px solid var(--truck-yellow);
-}
-.menu-item.has-photo .menu-item-body {
-  padding: 1.25rem 1.25rem 1rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.menu-item.has-photo .menu-item-body p { margin-top: auto; }
-
 /* -------- Calendar sidebar figure -------- */
 .help-figure {
   margin: 0 0 1rem;
@@ -861,20 +777,21 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* -------- Retro / roadside-diner accents -------- */
 
-/* Oversized Pacifico flourish for the home hero headline. */
+/* Oversized Lobster flourish for the home hero headline. */
 .script-xl {
   font-family: var(--font-script);
   font-weight: 400;
   color: var(--truck-yellow);
   font-size: 1.35em;
-  line-height: 0.9;
+  line-height: 1;
   letter-spacing: 0;
   text-shadow:
     3px 3px 0 var(--truck-red),
     6px 6px 0 var(--truck-navy);
   display: inline-block;
   transform: rotate(-4deg);
-  padding: 0 0.1em;
+  padding: 0.1em 0.1em 0.2em;
+  vertical-align: middle;
 }
 
 /* Circular stamp / seal — bottom-right of the home hero */
@@ -995,31 +912,49 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1;
 }
 
-/* "House Fave" stamp — can be added to any .menu-item */
-.menu-item.fave { position: relative; }
-.menu-item.fave::after {
-  content: "House\AFave";
-  white-space: pre;
-  position: absolute;
-  top: -14px;
-  right: -14px;
-  width: 74px;
-  height: 74px;
-  border-radius: 50%;
-  background: var(--truck-red);
-  color: #fff;
-  border: 3px solid #fff;
-  box-shadow: 0 0 0 3px var(--truck-red), 3px 3px 0 rgba(0,0,0,0.2);
-  display: flex;
+/* -------- Social icons + heart tribute -------- */
+.ig-link {
+  display: inline-flex;
   align-items: center;
+  gap: 0.4rem;
+}
+.ig-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+.heart {
+  color: var(--truck-red);
+  font-style: normal;
+  display: inline-block;
+  transform: translateY(1px);
+}
+
+/* -------- Menu PDF embed -------- */
+.menu-pdf-wrap {
+  padding: 2.5rem 1.25rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: stretch;
+}
+.menu-pdf-embed {
+  width: 100%;
+  min-height: 900px;
+  border: 3px solid var(--truck-navy);
+  border-radius: var(--radius);
+  box-shadow: 6px 6px 0 var(--truck-red);
+  background: #fff;
+}
+.menu-pdf-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
   justify-content: center;
+}
+.menu-pdf-fallback {
   text-align: center;
-  font-family: var(--font-display);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.85rem;
-  line-height: 1;
-  transform: rotate(12deg);
-  z-index: 2;
+  color: var(--ink-muted);
+  font-style: italic;
 }

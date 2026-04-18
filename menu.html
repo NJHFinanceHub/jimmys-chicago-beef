@@ -8,15 +8,16 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Pacifico&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Lobster&family=Alfa+Slab+One&display=swap" rel="stylesheet" />
 </head>
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
       <a href="index.html" class="brand" aria-label="Jimmy's Chicago Beef — Denver, Colorado">
-        <span class="brand-mark">JCB</span>
+        <img src="images/logo.png" alt="Jimmy's Chicago Beef" class="brand-logo" />
         <span class="brand-text">
-          <span class="brand-name">Jimmy's <span class="script">Chicago</span> Beef</span>
+          <span class="brand-jimmys">Jimmy's</span>
+          <span class="brand-beef">Chicago Beef</span>
           <span class="brand-tag">Denver, Colorado</span>
         </span>
       </a>
@@ -42,158 +43,20 @@
       </div>
     </section>
 
-    <section class="container menu-section">
-      <h2 class="menu-heading">Sandwiches</h2>
-      <div class="menu-grid">
-        <article class="menu-item has-photo fave">
-          <img class="menu-photo" src="images/italian-beef.jpg" alt="Italian beef sandwich with giardiniera and dipping jus" loading="lazy" />
-          <div class="menu-item-body">
-            <div class="menu-item-head">
-              <h3>Italian Beef</h3>
-              <span class="price">$12</span>
-            </div>
-            <p>Slow-roasted top round, thin-sliced and piled on an Italian roll. Choose: sweet peppers, hot giardiniera, or both. Ask for it <em>dipped</em> or <em>wet</em>.</p>
-          </div>
-        </article>
-        <article class="menu-item has-photo">
-          <img class="menu-photo" src="images/sausage-sub.jpg" alt="Italian sausage sub with grilled peppers" loading="lazy" />
-          <div class="menu-item-body">
-            <div class="menu-item-head">
-              <h3>Italian Sausage</h3>
-              <span class="price">$11</span>
-            </div>
-            <p>Charred Italian sausage, sweet peppers, on a sturdy roll. Simple, smoky, perfect.</p>
-          </div>
-        </article>
-        <article class="menu-item has-photo">
-          <img class="menu-photo" src="images/beef-held.jpg" alt="Combo sandwich served with a cup of seasoned jus" loading="lazy" />
-          <div class="menu-item-body">
-            <div class="menu-item-head">
-              <h3>Combo (Beef + Sausage)</h3>
-              <span class="price">$15</span>
-            </div>
-            <p>The one true combo. Italian beef and a split Italian sausage on the same roll. The dream.</p>
-          </div>
-        </article>
-        <article class="menu-item has-photo">
-          <img class="menu-photo" src="images/meatball-sub.jpg" alt="Meatball sub with melted cheese" loading="lazy" />
-          <div class="menu-item-body">
-            <div class="menu-item-head">
-              <h3>Meatball Sub</h3>
-              <span class="price">$11</span>
-            </div>
-            <p>House meatballs, red sauce, provolone, toasted roll. A Sunday-dinner sandwich.</p>
-          </div>
-        </article>
+    <section class="container menu-pdf-wrap">
+      <object class="menu-pdf-embed" data="menu.pdf" type="application/pdf">
+        <p class="menu-pdf-fallback">Your browser can't display embedded PDFs. <a href="menu.pdf">Open the menu PDF</a> in a new tab instead.</p>
+      </object>
+      <div class="menu-pdf-actions">
+        <a class="btn btn-primary" href="menu.pdf" target="_blank" rel="noopener">Open menu PDF</a>
+        <a class="btn btn-ghost" href="menu.pdf" download>Download menu</a>
       </div>
-
-      <h2 class="menu-heading">Dogs &amp; Polish</h2>
-      <div class="menu-grid">
-        <article class="menu-item has-photo">
-          <img class="menu-photo" src="images/chicago-dog.jpg" alt="Chicago dog with mustard, relish, tomato, pickle, and sport peppers" loading="lazy" />
-          <div class="menu-item-body">
-            <div class="menu-item-head">
-              <h3>Chicago Dog</h3>
-              <span class="price">$7</span>
-            </div>
-            <p>Vienna Beef frank, poppyseed bun, yellow mustard, neon relish, chopped onion, tomato, pickle spear, sport peppers, celery salt. <strong>No ketchup. Don't even ask.</strong></p>
-          </div>
-        </article>
-        <article class="menu-item has-photo">
-          <img class="menu-photo" src="images/dog-mustard.jpg" alt="Classic Chicago-style dog with yellow mustard being poured over relish and sport peppers" loading="lazy" />
-          <div class="menu-item-body">
-            <div class="menu-item-head">
-              <h3>Maxwell Street Polish</h3>
-              <span class="price">$9</span>
-            </div>
-            <p>Grilled Polish sausage, mountain of caramelized onions, yellow mustard, sport peppers. The Chicago street classic.</p>
-          </div>
-        </article>
-        <article class="menu-item has-photo">
-          <img class="menu-photo" src="images/sausage-peppers.jpg" alt="Charred sausages on the grill beside sweet peppers" loading="lazy" />
-          <div class="menu-item-body">
-            <div class="menu-item-head">
-              <h3>Char Dog</h3>
-              <span class="price">$7</span>
-            </div>
-            <p>Vienna Beef dog, charred off the flat-top, your choice of toppings. Smoky, snappy, done.</p>
-          </div>
-        </article>
-        <article class="menu-item has-photo">
-          <img class="menu-photo" src="images/dog-building.jpg" alt="Chicago dog being built with fresh toppings from the prep line" loading="lazy" />
-          <div class="menu-item-body">
-            <div class="menu-item-head">
-              <h3>Cheese Fry Dog</h3>
-              <span class="price">$10</span>
-            </div>
-            <p>Chicago dog, loaded on top with fries and melted cheddar. You earned it.</p>
-          </div>
-        </article>
-      </div>
-
-      <h2 class="menu-heading">Sides</h2>
-      <div class="menu-grid">
-        <article class="menu-item has-photo">
-          <img class="menu-photo" src="images/fries.jpg" alt="Golden crinkle-cut fries with a cup of ketchup" loading="lazy" />
-          <div class="menu-item-body">
-            <div class="menu-item-head">
-              <h3>Fresh-Cut Fries</h3>
-              <span class="price">$5</span>
-            </div>
-            <p>Hand-cut, double-fried, salted hot.</p>
-          </div>
-        </article>
-        <article class="menu-item has-photo">
-          <img class="menu-photo" src="images/fryer-dip.jpg" alt="Team member lowering a fry basket into hot oil" loading="lazy" />
-          <div class="menu-item-body">
-            <div class="menu-item-head">
-              <h3>Cheese Fries</h3>
-              <span class="price">$7</span>
-            </div>
-            <p>Our fries, smothered in melted cheddar and a little pepper.</p>
-          </div>
-        </article>
-        <article class="menu-item">
-          <div class="menu-item-head">
-            <h3>House Giardiniera (8 oz)</h3>
-            <span class="price">$8</span>
-          </div>
-          <p>Take our spicy pickled vegetables home. Goes on everything.</p>
-        </article>
-        <article class="menu-item">
-          <div class="menu-item-head">
-            <h3>Bag of Chips</h3>
-            <span class="price">$2</span>
-          </div>
-          <p>A classic. Jay's when we can get 'em.</p>
-        </article>
-      </div>
-
-      <h2 class="menu-heading">Drinks</h2>
-      <div class="menu-grid">
-        <article class="menu-item">
-          <div class="menu-item-head">
-            <h3>Mexican Coke &amp; Sodas</h3>
-            <span class="price">$3</span>
-          </div>
-          <p>Bottled sodas, including root beer and orange.</p>
-        </article>
-        <article class="menu-item">
-          <div class="menu-item-head">
-            <h3>Bottled Water</h3>
-            <span class="price">$2</span>
-          </div>
-          <p>Stay hydrated at altitude.</p>
-        </article>
-      </div>
-
-      <p class="menu-note">Menu subject to change. Please let us know about any allergies — we'll do our best to accommodate, but our truck shares a small kitchen.</p>
     </section>
 
     <section class="callout">
       <div class="container callout-inner">
         <h2>Catering the whole menu</h2>
-        <p>Sliders, party platters, and big-batch beef for your next event.</p>
+        <p>Big batch beef for your next event.</p>
         <a class="btn btn-primary" href="contact.html">Get a Catering Quote</a>
       </div>
     </section>
@@ -202,7 +65,7 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <span class="brand-mark brand-mark-footer">JCB</span>
+        <img src="images/logo.png" alt="Jimmy's Chicago Beef" class="brand-logo brand-logo-footer" />
         <p>Jimmy's Chicago Beef<br />Denver, Colorado</p>
       </div>
       <div>
@@ -212,14 +75,17 @@
       </div>
       <div>
         <h4>Say hi</h4>
-        <p><a href="mailto:hello@jimmyschicagobeef.com">hello@jimmyschicagobeef.com</a></p>
+        <p><a href="mailto:jimmyschicagobeef@gmail.com">jimmyschicagobeef@gmail.com</a></p>
         <p><a href="tel:+16303791918">(630) 379-1918</a></p>
-        <p><a href="https://instagram.com/jimmyschicagobeef" target="_blank" rel="noopener">@jimmyschicagobeef</a></p>
+        <p><a class="ig-link" href="https://instagram.com/jimmyschicagobeef" target="_blank" rel="noopener" aria-label="Jimmy's Chicago Beef on Instagram">
+          <svg class="ig-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.22.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.05.41 2.22.06 1.25.07 1.63.07 4.82 0 3.2 0 3.58-.07 4.83-.05 1.17-.25 1.8-.41 2.22-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.05.36-2.22.41-1.25.06-1.62.07-4.82.07-3.2 0-3.58 0-4.83-.07-1.17-.05-1.8-.25-2.22-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.05-.41-2.22C2.2 15.58 2.2 15.2 2.2 12s0-3.58.07-4.83c.05-1.17.25-1.8.41-2.22.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.05-.36 2.22-.41C8.42 2.2 8.8 2.2 12 2.2Zm0 1.82c-3.14 0-3.51 0-4.75.06-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.26.82-.38.38-.62.75-.82 1.26-.15.39-.33.97-.38 2.04C2.68 9.82 2.68 10.2 2.68 12c0 1.8 0 2.17.06 3.42.05 1.07.23 1.65.38 2.04.2.51.44.88.82 1.26.38.38.75.62 1.26.82.39.15.97.33 2.04.38 1.24.06 1.61.06 4.75.06s3.51 0 4.75-.06c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.26-.82.38-.38.62-.75.82-1.26.15-.39.33-.97.38-2.04.06-1.25.06-1.62.06-3.42 0-1.8 0-2.17-.06-3.42-.05-1.07-.23-1.65-.38-2.04-.2-.51-.44-.88-.82-1.26-.38-.38-.75-.62-1.26-.82-.39-.15-.97-.33-2.04-.38C15.51 4.02 15.14 4.02 12 4.02Zm0 3.1a4.88 4.88 0 1 1 0 9.76 4.88 4.88 0 0 1 0-9.76Zm0 1.82a3.06 3.06 0 1 0 0 6.12 3.06 3.06 0 0 0 0-6.12Zm5.09-2.05a1.14 1.14 0 1 1 0 2.28 1.14 1.14 0 0 1 0-2.28Z"/></svg>
+          @jimmyschicagobeef
+        </a></p>
       </div>
     </div>
     <div class="container footer-bottom">
       <small>&copy; <span id="year"></span> Jimmy's Chicago Beef. All rights reserved.</small>
-      <small class="tribute">Named for our dad, Jimmy.</small>
+      <small class="tribute">Giardiniera is our love language <span class="heart">♥</span></small>
     </div>
   </footer>
 
