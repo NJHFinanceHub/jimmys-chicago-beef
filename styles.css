@@ -670,9 +670,11 @@ a:hover { text-decoration: underline; }
 .bts .eyebrow { color: var(--truck-red); }
 .bts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
+@media (max-width: 900px) { .bts-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .bts-grid { grid-template-columns: 1fr; } }
 .bts-grid figure {
   margin: 0;
   overflow: hidden;
