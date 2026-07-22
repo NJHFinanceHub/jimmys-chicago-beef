@@ -419,6 +419,12 @@ a:hover { text-decoration: underline; }
   display: block;
   border: 0;
 }
+/* Month grid on desktop, agenda list on phones */
+.calendar-embed .calendar-agenda { display: none; }
+@media (max-width: 700px) {
+  .calendar-embed .calendar-month { display: none; }
+  .calendar-embed .calendar-agenda { display: block; }
+}
 
 .calendar-help {
   background: var(--truck-sky-soft);
